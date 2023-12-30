@@ -132,10 +132,13 @@ function bubble(){
    // display(arr)   
     
     for(m=0; m<7 ; m++){
+     if(m==0){ alert(JSON.stringify(arr)) }
      copy[m]=JSON.parse(JSON.stringify(arr) )
      copy[m][p].x+=boxWidth*m/6
      copy[m][p+1].x-=boxWidth*m/6
-     setTimeout(function(){alert(JSON.stringify(copy[m]));display(copy[m]) },.1*delay)
+     setTimeout(function(){
+      //alert(JSON.stringify(copy[m]));
+      display(copy[m]) },.1*delay)
     }
    swap(p,p+1)
    }
