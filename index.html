@@ -60,7 +60,7 @@ function display(item){
   ct1.font="4vw Monospace"
   ct1.clearRect(0,0,c1.width,c1.height)
   ct1.fillStyle="black"
-  ct1.fillText("Steps= "+steps,0,.04*c1.height)
+  ct1.fillText("Comparison steps "+steps,0,.04*c1.height)
   for(i=0;i<size;i++){
     ct1.fillStyle=item[i].col
     ct1.fillText(item[i].val,item[i].x,item[i].y-20)
@@ -102,6 +102,7 @@ function insertSort(i){
   display(arr)
   arr[i].col=sortCol
   check=i
+  steps++
   while(check>0 && arr[check-1].val>arr[check].val){
     swap(check-1, check)
     check--
@@ -162,7 +163,7 @@ function swap(a,b){
  
 function finish(){
   display(arr)
-  ct1.fillText("Set Sorted",.4*c1.width,.04*c1.height)
+  ct1.fillText("Set Sorted",.5*c1.width,.04*c1.height)
   working(false)
 }
  
