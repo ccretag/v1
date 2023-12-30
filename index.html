@@ -26,7 +26,7 @@ var choiceSize=document.getElementById('setsize')
 var sortButton=document.getElementById('sort')
 var arr=[], pos=[], color=[], boxWidth=60
 var work, sorted=false
-var sortedCol="green", unsortCol="brown", wrongCol="red", checkCol="orange"
+var sortedCol="green", initCol="brown", wrongCol="red", checkCol="orange"
 var p=0,steps=0, delay=1000, scale=15
 working(false)
 gen()
@@ -37,7 +37,7 @@ function gen(){
   for(i=0;i<size;i++){
     arr[i]=Math.floor(1+Math.random()*9)
     pos[i]=boxWidth*(i+1)
-    color[i]=unsortCol
+    color[i]=initCol
   }
   steps=0
   display()
@@ -77,7 +77,7 @@ function selectSort(){
   check++
  }
  color[lowPlace]=wrongCol
- setTimeout( function(){ display(); swap(p,lowPlace); color[check]=unsortCol; color[p]=sortedCol}, .6*delay)
+ setTimeout( function(){ display(); swap(p,lowPlace); color[lowPlace]=initCol; color[p]=sortedCol}, .6*delay)
  
  setTimeout( function(){ display(); working(false) }, delay)
 }
@@ -128,8 +128,8 @@ function bubble(){
     display()
   }
     
-  color[p]=unsortCol
-  color[p+1]=unsortCol
+  color[p]=initCol
+  color[p+1]=initCol
   setTimeout(function(){ display() }, .6*delay)
   setTimeout(function(){ p++; bubble() },delay)
  }
