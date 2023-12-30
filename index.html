@@ -39,26 +39,26 @@ function gen(){
    arr[i]={val: Math.floor(1+Math.random()*9), x: boxWidth*(i+1), col: initCol }
   }
   steps=0
-  display()
+  display(arr)
   
 }
  
-function display(){
+function display(item){
   ct1.font="18px Monospace"
   ct1.clearRect(0,0,900,400)
   ct1.fillStyle="black"
   ct1.fillText("Steps= "+steps,30,30)
   for(i=0;i<size;i++){
-    ct1.fillStyle=arr[i].col
-    ct1.fillText(arr[i].val,arr[i].x,100)
-    ct1.fillRect(arr[i].x,120,.5*boxWidth,scale*arr[i].val)
+    ct1.fillStyle=item[i].col
+    ct1.fillText(item[i].val,item[i].x,100)
+    ct1.fillRect(item[i].x,120,.5*boxWidth,scale*item[i].val)
   }
 }
 
 function oneSort(){
   if(work==true){ return }
   working(true)
-  if(choiceAlg.value=="Bubble"){ bubbleSort() }
+  if(choiceAlg.value=="Bbble"){ bubbleSort() }
   if(choiceAlg.value=="Insert"){ insertSort() }
   if(choiceAlg.value=="Selection"){ selectSort() }
 }
@@ -68,7 +68,7 @@ function selectSort(){
  while(p<size && arr[p].col==sortCol){p++; steps++}
  if(p>=size){ finish(); return }
  arr[p].col=checkCol
- display()
+ display(arr)
  // find lowest
  lowest=9999999
  check=p
@@ -77,9 +77,9 @@ function selectSort(){
   check++
  }
  arr[lowPlace].col=wrongCol
- setTimeout( function(){ display(); swap(p,lowPlace); arr[lowPlace].col=initCol; arr[p].col=sortCol}, .6*delay)
+ setTimeout( function(){ display(arr); swap(p,lowPlace); arr[lowPlace].col=initCol; arr[p].col=sortCol}, .6*delay)
  
- setTimeout( function(){ display(); working(false) }, delay)
+ setTimeout( function(){ display(arr); working(false) }, delay)
 }
  
 function insertSort(){  
@@ -90,7 +90,7 @@ function insertSort(){
   while(p<size && arr[p].col==sortCol){p++; steps++}
   if(p>=size){ finish(); return }
   arr[p].col=checkCol
-  display()
+  display(arr)
  // from unsorted place
  arr[p].col=sortCol
 
@@ -99,7 +99,7 @@ function insertSort(){
   swap(check-1, check)
   check--
  }
- setTimeout(function(){ display(); working(false)},delay)
+ setTimeout(function(){ display(arr); working(false)},delay)
 }
 
 
@@ -119,18 +119,18 @@ function bubble(){
     sorted=false;
     arr[p].col=wrongCol
     arr[p+1].col=wrongCol
-    display()
+    display(arr)
     swap(p,p+1)
    }
    else{
     arr[p].col=sortCol
     arr[p+1].col=sortCol
-    display()
+    display(arr)
   }
     
   arr[p].col=initCol
   arr[p+1].col=initCol
-  setTimeout(function(){ display() }, .6*delay)
+  setTimeout(function(){ display(arr) }, .6*delay)
   setTimeout(function(){ p++; bubble() },delay)
  }
 
