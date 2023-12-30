@@ -54,10 +54,10 @@ function gen(){
 }
  
 function display(item){
-  ct1.font="18px Monospace"
+  ct1.font="3wv Monospace"
   ct1.clearRect(0,0,c1.width,c1.height)
   ct1.fillStyle="black"
-  ct1.fillText("Steps= "+steps,30,30)
+  ct1.fillText("Steps= "+steps,0,40)
   for(i=0;i<size;i++){
     ct1.fillStyle=item[i].col
     ct1.fillText(item[i].val,item[i].x,item[i].y-20)
@@ -153,7 +153,7 @@ function swap(a,b){
  
 function finish(){
   display(arr)
-  ct1.fillText("Set is Sorted",200,30)
+  ct1.fillText("Set is Sorted",200,40)
   working(false)
  }
  
