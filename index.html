@@ -25,7 +25,7 @@ var choiceSize=document.getElementById('setsize')
 var sortButton=document.getElementById('sort')
 var arr=[], pos=[], color=[], boxWidth=60
 var work, sorted=false
-var sortedColor="cyan", unsortColor="brown", wrongColor="red"
+var sortedCol="cyan", unsortCol="brown", wrongCol="red"
 var p=0,steps=0, delay=1000, scale=15
 working(false)
 gen()
@@ -36,7 +36,7 @@ function gen(){
   for(i=0;i<size;i++){
     arr[i]=Math.floor(1+Math.random()*9)
     pos[i]=boxWidth*(i+1)
-    color[i]=unsortColor
+    color[i]=unsortCol
   }
   steps=0
   display()
@@ -64,14 +64,14 @@ function oneSort(){
 function insertSort(){  
   // set first place sorted
   p=0
-  color[0]=sortedColor
+  color[0]=sortedCol
   
   while(p<size && color[p]==sortedColor){p++; steps++}
   if(p>=size){finish(); return}
-  color[p]=wrongColor
+  color[p]=wrongCol
   display()
  // from unsorted place
- color[p]=sortedColor
+ color[p]=sortedCol
 
  check=p
  while(check>0 && arr[check-1]>arr[check]){
@@ -95,14 +95,19 @@ function bubble(){
   steps++
   if(arr[p+1]<arr[p]){
     sorted=false;
-    color[p]=wrongColor
-    color[p+1]=wrongColor
+    color[p]=wrongCol
+    color[p+1]=wrongCol
     display()
     swap(p,p+1)
-    color[p]=unsortColor
-    color[p+1]=unsortColor
    }
-  
+   else{
+    color[p]=sortedCol
+    color[p+1]=sortedCol
+    display()
+  }
+    
+  color[p]=unsortCol
+  color[p+1]=unsortCol
   setTimeout(function(){display(); p++; bubble()},delay)
  }
 
