@@ -25,8 +25,8 @@ var choiceAlg=document.getElementById('algorithm')
 var choiceSize=document.getElementById('setsize')
 var sortButton=document.getElementById('sort')
 var arr=[], boxWidth=60
-var work, sorted=false
-var sortedCol="green", initCol="brown", wrongCol="red", checkCol="orange"
+var work, sorted
+var sortCol="green", initCol="brown", wrongCol="red", checkCol="orange"
 var p,steps, delay=1000, scale=15
 alert("start")
 working(false)
@@ -67,7 +67,7 @@ function oneSort(){
 
 function selectSort(){
  p=0
- while(p<size && arr[p].col==sortedCol){p++; steps++}
+ while(p<size && arr[p].col==sortCol){p++; steps++}
  if(p>=size){ finish(); return }
  arr[p].col=checkCol
  display()
@@ -79,7 +79,7 @@ function selectSort(){
   check++
  }
  arr[lowPlace].col=wrongCol
- setTimeout( function(){ display(); swap(p,lowPlace); arr[lowPlace].col=initCol; arr[p].col=sortedCol}, .6*delay)
+ setTimeout( function(){ display(); swap(p,lowPlace); arr[lowPlace].col=initCol; arr[p].col=sortCol}, .6*delay)
  
  setTimeout( function(){ display(); working(false) }, delay)
 }
@@ -87,14 +87,14 @@ function selectSort(){
 function insertSort(){  
   // set first place sorted
   p=0
-  arr[0].col=sortedCol
+  arr[0].col=sortCol
   
-  while(p<size && arr[p].col==sortedCol){p++; steps++}
+  while(p<size && arr[p].col==sortCol){p++; steps++}
   if(p>=size){ finish(); return }
   arr[p].col=checkCol
   display()
  // from unsorted place
- arr[p].col=sortedCol
+ arr[p].col=sortCol
 
  check=p
  while(check>0 && arr[check-1].val>arr[check].val){
@@ -125,8 +125,8 @@ function bubble(){
     swap(p,p+1)
    }
    else{
-    arr[p].col=sortedCol
-    arr[p+1].col=sortedCol
+    arr[p].col=sortCol
+    arr[p+1].col=sortCol
     display()
   }
     
