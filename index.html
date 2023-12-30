@@ -103,7 +103,7 @@ function insertSort(i){
   if(i>=size){ finish(); return }
   arr[i].col=checkCol
   display(arr)
- arr[i]=sortCol
+ arr[i].col=sortCol
  check=i
  while(check>0 && arr[check-1].val>arr[check].val){
   swap(check-1, check)
