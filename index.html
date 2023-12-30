@@ -6,6 +6,7 @@
   <select id="algorithm">
     <option value="Bubble">Bubble</option>
     <option value="Insert">Insert</option>
+    <option value="Selection">Selection</option>
   </select>
  <label for="setsize">Set size:</label>
   <select id="setsize">
@@ -59,6 +60,25 @@ function oneSort(){
   working(true)
   if(choiceAlg.value=="Bubble"){ bubbleSort() }
   if(choiceAlg.value=="Insert"){ insertSort() }
+  if(choiceAlg.value=="Selection"){ selectSort() }
+}
+
+function selectSort(){
+ p=0
+ while(p<size && color[p]==sortedCol){p++; steps++}
+ if(p>=size){ finish(); return }
+ color[p]=checkCol
+ display()
+ // find lowest
+ lowest=arr[p]
+ lowPlace=p
+ while(p<size){
+  if(arr[p]<lowest){ lowest=arr[p]; lowPlace=p }
+  p++
+ }
+ swap(p,lowPlace)
+ color[p]=sortedCol
+ setTimeout( function(){ display() }, .6*delay)
 }
  
 function insertSort(){  
@@ -67,7 +87,7 @@ function insertSort(){
   color[0]=sortedCol
   
   while(p<size && color[p]==sortedCol){p++; steps++}
-  if(p>=size){finish(); return}
+  if(p>=size){ finish(); return }
   color[p]=checkCol
   display()
  // from unsorted place
