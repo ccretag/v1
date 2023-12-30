@@ -67,7 +67,8 @@ function insertSort(){
   
   while(p<size && color[p]==sortedColor){p++; steps++}
   if(p>=size){finish(); return}
-
+  color[p]="orange"
+  display()
  // from unsorted place
  color[p]=sortedColor
 
@@ -76,9 +77,7 @@ function insertSort(){
   swap(check-1, check)
   check--
  }
-    
-  display()
-  working(false)  
+ setTimeout(function(){ display(); working(false)},delay)
 }
 
 
