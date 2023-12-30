@@ -106,27 +106,17 @@ function ok(c,d){
 }
   
 function swap(a,b){
-  if(anim<=boxWidth){
-    ct1.clearRect(pos[a],120,2*boxWidth,scale*10)
-    ct1.fillStyle="red"
-    ct1.fillRect(pos[a]+anim,120,.5*boxWidth,scale*arr[a])
-    ct1.fillStyle="blue"
-    ct1.fillRect(pos[b]-anim,120,.5*boxWidth,scale*arr[b])
-    anim+=10
-    requestAnimationFrame(function(){swap(a,b)} )
-  }
-  else{
    temp=arr[a]
    arr[a]=arr[b]
    arr[b]=temp
-   display()
-  }
 }
+ 
 function finish(){
-  ct1.fillStyle="brown"
+  display()
   ct1.fillText("Set is Sorted",200,30)
   working(false)
  }
+ 
 function working(onoff){
  if(onoff){
   work=true
