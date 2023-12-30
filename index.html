@@ -1,6 +1,6 @@
 <html>
 <body>
- v5
+ v6
  <canvas id="Canvas1"></canvas>
  <br>
  <label for="algorithm" style="font-size: 4vw">Algorithm:</label>
@@ -82,8 +82,9 @@ function selectSort(){
  arr[p].col=checkCol
  display(arr)
  // find lowest
- lowest=9999999
- check=p
+ lowest=arr[p]
+ lowPlace=p
+ check=p+1
  while(check<size){
   if(arr[check].val<lowest){ lowest=arr[check].val; lowPlace=check}
   check++
