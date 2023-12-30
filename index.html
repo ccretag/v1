@@ -15,7 +15,7 @@
     <option value="12">12</option>
   </select> 
   <br> <br>
- <button id="gnerate" onclick="gen()" style="font-size: 16px;">Generate</button>
+ <button id="generate" onclick="gen()" style="font-size: 16px;">Generate</button>
  <button id="sort" onclick="oneSort()" style="font-size: 18px;">One Sort Cycle</button>
 <br>
 <script>
@@ -23,7 +23,7 @@ var c1 = document.getElementById("Canvas1")
 var ct1 = c1.getContext("2d")
 var canWidth=window.innerWidth, canHeight= window.innerHeight
 c1.width=Math.floor(.95*canWidth)
-c1.height=Math.floor(.95*canHeight)
+c1.height=Math.floor(.5*canHeight)
 var boxWidth=Math.floor(.07*canWidth)
  
 var choiceAlg=document.getElementById('algorithm')
