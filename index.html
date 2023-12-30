@@ -1,6 +1,6 @@
 <html>
 <body>
- v2
+ v5
  <canvas id="Canvas1"></canvas>
  <br>
  <label for="algorithm" style="font-size: 4vw">Algorithm:</label>
@@ -103,10 +103,12 @@ function insertSort(i){
   arr[i].col=sortCol
   check=i
   steps++
-  while(check>0 && arr[check-1].val>arr[check].val){
+  while(check>0){
+   if(arr[check-1].val>arr[check].val){
     swap(check-1, check)
     check--
-    steps++
+    steps++}
+   else{ break }
   }
   setTimeout(function(){ display(arr) },delay)
   setTimeout(function(){ insertSort(i+1) }, 1.5*delay)
