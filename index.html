@@ -36,7 +36,8 @@ var arr=[], copy=[]
 
 var work, sorted
 var sortCol="green", initCol="gray", wrongCol="red", checkCol="orange"
-var p,steps, delay=1000
+var p,steps, delay
+ delay=prompt("delay ms")
 working(false)
 gen()
  
@@ -72,28 +73,28 @@ function oneSort(){
   working(true)
   if(choiceAlg.value=="Bubble"){ bubbleSort() }
   if(choiceAlg.value=="Insert"){ insertSort() }
-  if(choiceAlg.value=="Selection"){ selectSort() }
+  if(choiceAlg.value=="Selection"){ selectSort(0) }
 }
 
-function selectSort(){
- p=0
- while(p<size && arr[p].col==sortCol){p++}
- if(p>=size){ finish(); return }
- arr[p].col=checkCol
+function selectSort(s){
+ 
+ if(s>=size){ finish(); return }
+ arr[s].col=checkCol
  display(arr)
  // find lowest
- lowest=arr[p].val
- lowPlace=p
- check=p+1
+ lowest=arr[s].val
+ lowPlace=s
+ check=s+1
  while(check<size){
   if(arr[check].val<lowest){ lowest=arr[check].val; lowPlace=check}
   check++
   steps++
  }
  arr[lowPlace].col=wrongCol
- setTimeout( function(){ display(arr); swap(p,lowPlace); arr[lowPlace].col=initCol; arr[p].col=sortCol}, .6*delay)
+ setTimeout( function(){ display(arr); swap(s,lowPlace); arr[lowPlace].col=initCol; arr[s].col=sortCol}, .6*delay)
  
- setTimeout( function(){ display(arr); working(false) }, delay)
+ setTimeout( function(){ display(arr) }, delay)
+ setTimeout( function(){ selectSort(s+1) }, 2*delay)
 }
  
 function insertSort(){  
