@@ -25,7 +25,7 @@ var choiceSize=document.getElementById('setsize')
 var sortButton=document.getElementById('sort')
 var arr=[], pos=[], color=[], boxWidth=60
 var work, sorted=false
-var sortedCol="green", unsortCol="brown", wrongCol="red"
+var sortedCol="green", unsortCol="brown", wrongCol="red", checkCol="orange"
 var p=0,steps=0, delay=1000, scale=15
 working(false)
 gen()
@@ -68,7 +68,7 @@ function insertSort(){
   
   while(p<size && color[p]==sortedCol){p++; steps++}
   if(p>=size){finish(); return}
-  color[p]=wrongCol
+  color[p]=checkCol
   display()
  // from unsorted place
  color[p]=sortedCol
