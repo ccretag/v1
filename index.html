@@ -123,9 +123,8 @@ function bubbleSort(){
   
 function bubble(){
  if(p>size-2){
-      if(sorted){ finish() }
-      else{ setTimeout( function(){ bubbleSort() }, 2*delay }
-      return}
+     if(sorted){ finish() }
+     else{ setTimeout( function(){ bubbleSort() }, 2*delay ); return}
  steps++
  
  if(arr[p+1].val<arr[p].val){
