@@ -31,7 +31,7 @@ var choiceAlg=document.getElementById('algorithm')
 var choiceSize=document.getElementById('setsize')
 var sortButton=document.getElementById('sort')
  
-var arr=[]
+var arr=[], copy=[]
 var work, sorted
 var sortCol="green", initCol="gray", wrongCol="red", checkCol="orange"
 var p,steps, delay=2000
@@ -130,7 +130,7 @@ function bubble(){
     arr[p].col=wrongCol
     arr[p+1].col=wrongCol
    // display(arr)   
-    copy=[]
+    
     for(m=0; m<7 ; m++){
      copy[m]=JSON.parse(JSON.stringify(arr) )
      copy[m][p].x+=boxWidth*m/6
