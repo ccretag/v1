@@ -1,6 +1,6 @@
 <html>
 <body>
- v4
+ v5
  <canvas id="Canvas1"></canvas>
  <br>
  <label for="algorithm" style="font-size: 4vw">Algorithm:</label>
@@ -91,6 +91,7 @@ function selectSort(){
  while(check<size){
   if(arr[check].val<lowest){ lowest=arr[check].val; lowPlace=check}
   check++
+  steps++
  }
  arr[lowPlace].col=wrongCol
  setTimeout( function(){ display(arr); swap(p,lowPlace); arr[lowPlace].col=initCol; arr[p].col=sortCol}, .6*delay)
