@@ -134,7 +134,7 @@ function bubble(){
     for(m=0; m<7 ; m++){
      copy[m]=[]
      for(z=0; z<size; z++){
-      copy[m][z]=[...arr]
+      copy[m][z]={...arr[z]}
      }
       
      if(m==0){alert(copy[m][p].x) }
