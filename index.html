@@ -24,8 +24,9 @@ var choiceAlg=document.getElementById('algorithm')
 var choiceSize=document.getElementById('setsize')
 var sortButton=document.getElementById('sort')
 var arr=[], pos=[], color=[], boxWidth=60
-var work, sorted=false, anim=0, sortedColor="cyan"
-var p=0,steps=0, scale=15
+var work, sorted=false
+var sortedColor="cyan", unsortColor="brown", wrongColor="red"
+var p=0,steps=0, delay=1000, scale=15
 working(false)
 gen()
  
@@ -35,7 +36,7 @@ function gen(){
   for(i=0;i<size;i++){
     arr[i]=Math.floor(1+Math.random()*9)
     pos[i]=boxWidth*(i+1)
-    color[i]="brown"
+    color[i]=unsortColor
   }
   steps=0
   display()
@@ -56,8 +57,8 @@ function display(){
 function oneSort(){
   if(work==true){ return }
   working(true)
-  if(choiceAlg.value=="Bubble"){ delay=900; bubbleSort() }
-  if(choiceAlg.value=="Insert"){ delay=1400; insertSort() }
+  if(choiceAlg.value=="Bubble"){ bubbleSort() }
+  if(choiceAlg.value=="Insert"){ insertSort() }
 }
  
 function insertSort(){  
@@ -67,7 +68,7 @@ function insertSort(){
   
   while(p<size && color[p]==sortedColor){p++; steps++}
   if(p>=size){finish(); return}
-  color[p]="orange"
+  color[p]=wrongColor
   display()
  // from unsorted place
  color[p]=sortedColor
@@ -92,17 +93,19 @@ function bubble(){
       if(sorted){ finish() } 
       return}
   steps++
-  if(arr[p+1]<arr[p]){ sorted=false; anim=0; swap(p,p+1)}
-  else{ok(p,p+1)}
-  setTimeout(function(){p++;bubble()},delay)
+  if(arr[p+1]<arr[p]){
+    sorted=false;
+    color[p]=wrongColor
+    color[p+1]=wrongColor
+    display()
+    swap(p,p+1)
+    color[p]=unsortColor
+    color[p+1]=unsortColor
+   }
+  
+  setTimeout(function(){display(); p++; bubble()},delay)
  }
 
-function ok(c,d){
-  ct1.fillStyle="green"
-  ct1.fillRect(pos[c],120,.5*boxWidth,scale*arr[c])
-  ct1.fillRect(pos[d],120,.5*boxWidth,scale*arr[d])
-  setTimeout(display,delay/3)
-}
   
 function swap(a,b){
    temp=arr[a]
