@@ -23,8 +23,9 @@ var c1 = document.getElementById("Canvas1")
 var ct1 = c1.getContext("2d")
 var canWidth=window.innerWidth, canHeight= window.innerHeight
 c1.width=Math.floor(.95*canWidth)
-c1.height=Math.floor(.5*canHeight)
+c1.height=Math.floor(.6*canHeight)
 var boxWidth=Math.floor(.07*canWidth)
+var scale=Math.floor(.04*canHeight)
  
 var choiceAlg=document.getElementById('algorithm')
 var choiceSize=document.getElementById('setsize')
@@ -33,7 +34,7 @@ var sortButton=document.getElementById('sort')
 var arr=[]
 var work, sorted
 var sortCol="green", initCol="brown", wrongCol="red", checkCol="orange"
-var p,steps, delay=1000, scale=15
+var p,steps, delay=1000
 working(false)
 gen()
  
@@ -41,7 +42,11 @@ function gen(){
  if(work){return}
  size=+(choiceSize.value)
   for(i=0;i<size;i++){
-   arr[i]={val: Math.floor(1+Math.random()*9), x: boxWidth*(i+1), col: initCol }
+   arr[i]={val: Math.floor(1+Math.random()*9),
+           x: boxWidth*(i+1),
+           y: Math.floor(.1*canHeight),
+           col: initCol
+          }
   }
   steps=0
   display(arr)
@@ -55,8 +60,8 @@ function display(item){
   ct1.fillText("Steps= "+steps,30,30)
   for(i=0;i<size;i++){
     ct1.fillStyle=item[i].col
-    ct1.fillText(item[i].val,item[i].x,100)
-    ct1.fillRect(item[i].x,120,.5*boxWidth,scale*item[i].val)
+    ct1.fillText(item[i].val,item[i].x,item[i].y-20)
+    ct1.fillRect(item[i].x,item[i].y,.5*boxWidth,scale*item[i].val)
   }
 }
 
