@@ -1,6 +1,6 @@
 <html>
 <body>
- v3
+ v4
  <canvas id="Canvas1"></canvas>
  <br>
  <label for="algorithm" style="font-size: 4vw">Algorithm:</label>
@@ -124,7 +124,7 @@ function bubbleSort(){
 function bubble(){
  if(p>size-2){
       if(sorted){ finish() }
-      else{ bubbleSort() }
+      else{ setTimeout( function(){ bubbleSort() }, 2*delay }
       return}
  steps++
  
