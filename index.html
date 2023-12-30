@@ -122,8 +122,9 @@ function bubbleSort(){
 }
   
 function bubble(){
- if(p>size-2){working(false);
-      if(sorted){ finish() } 
+ if(p>size-2){
+      if(sorted){ finish() }
+      else{ bubble() }
       return}
  steps++
  
