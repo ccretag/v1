@@ -72,9 +72,10 @@ function selectSort(){
  // find lowest
  lowest=arr[p]
  lowPlace=p
- while(p<size){
-  if(arr[p]<lowest){ lowest=arr[p]; lowPlace=p }
-  p++
+ check=p
+ while(check<size){
+  if(arr[check]<lowest){ lowest=arr[check]; lowPlace=check}
+  check++
  }
  swap(p,lowPlace)
  color[p]=sortedCol
