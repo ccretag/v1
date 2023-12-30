@@ -130,12 +130,13 @@ function bubble(){
     arr[p].col=wrongCol
     arr[p+1].col=wrongCol
     display(arr)   
-    copy=[...arr]
+    copy=[]
     swap(p,p+1)
-    for(m=1; m<7 ; m++){
-     copy[p].x+=boxWidth/6
-     copy[p+1].x-=boxWidth/6
-     setTimeout(function(){display(copy) },.1*delay)
+    for(m=0; m<7 ; m++){
+     copy[m]=[...arr]
+     copy[m][p].x+=boxWidth*m/6
+     copy[m][p+1].x-=boxWidth*m/6
+     setTimeout(function(){display(copy[m]) },.1*delay)
     }
    }
    else{
