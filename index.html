@@ -129,8 +129,14 @@ function bubble(){
     sorted=false;
     arr[p].col=wrongCol
     arr[p+1].col=wrongCol
-    display(arr)
+    display(arr)   
+    copy=[...arr]
     swap(p,p+1)
+    for(m=1; m<7 ; m++){
+     copy[p].x+=boxWidth/6
+     copy[p+1].x-=boxWidth/6
+     setTimeout(function(){display(copy) },.1*delay)
+    }
    }
    else{
     arr[p].col=sortCol
@@ -140,7 +146,7 @@ function bubble(){
     
   arr[p].col=initCol
   arr[p+1].col=initCol
-  setTimeout(function(){ display(arr) }, .6*delay)
+  setTimeout(function(){ display(arr) }, .8*delay)
   setTimeout(function(){ p++; bubble() },delay)
  }
 
