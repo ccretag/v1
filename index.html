@@ -1,6 +1,6 @@
 <html>
 <body>
- v2
+ v3
  <canvas id="Canvas1"></canvas>
  <br>
  <label for="algorithm" style="font-size: 4vw">Algorithm:</label>
@@ -143,10 +143,9 @@ function bubble(){
      copy[z][p].x+=boxWidth*z/6
      copy[z][p+1].x-=boxWidth*z/6
  
-   ( function(index){ 
+   
     setTimeout(function(){
-      display(copy[index]) },.1*index*delay) 
-  })(z)
+      display(copy[z]) },.1*z*delay) 
       
      }
      
