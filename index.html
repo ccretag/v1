@@ -76,8 +76,9 @@ function selectSort(){
   if(arr[check]<lowest){ lowest=arr[check]; lowPlace=check}
   check++
  }
- swap(p,lowPlace)
- color[p]=sortedCol
+ color[lowPlace]=wrongCol
+ setTimeout( function(){ display(); swap(p,lowPlace); color[check]=unsortCol; color[p]=sortedCol}, .6*delay)
+ 
  setTimeout( function(){ display(); working(false) }, delay)
 }
  
