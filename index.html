@@ -1,6 +1,6 @@
 <html>
 <body>
- v3
+ v4
  <canvas id="Canvas1"></canvas>
  <br>
  <label for="algorithm" style="font-size: 4vw">Algorithm:</label>
@@ -33,9 +33,10 @@ var choiceSize=document.getElementById('setsize')
 var sortButton=document.getElementById('sort')
  
 var arr=[], copy=[]
- for(z=0;z<7;z++){
+/* for(z=0;z<7;z++){
   copy[z]=[]
  }
+ */
 
 var work, sorted
 var sortCol="green", initCol="gray", wrongCol="red", checkCol="orange"
@@ -137,15 +138,15 @@ function bubble(){
     display(arr)   
     
     
-     for(let z=0;z<7;z++){ 
+     for(let z=0;z<12;z++){ 
       copy[z]=JSON.parse(JSON.stringify(arr) )     
      
-     copy[z][p].x+=boxWidth*z/6
-     copy[z][p+1].x-=boxWidth*z/6
+     copy[z][p].x+=boxWidth*z/12
+     copy[z][p+1].x-=boxWidth*z/12
  
    
     setTimeout(function(){
-      display(copy[z]) },.1*z*delay) 
+      display(copy[z]) },.05*z*delay) 
       
      }
      
