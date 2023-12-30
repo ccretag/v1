@@ -69,7 +69,7 @@ function insertSort(){
   if(p>=size)(finish(); return}
 
  // from unsorted place
- if(arr[p]<arr[p-1]){
+ if(arr[p-1]<=arr[p]){
    color[p]=sortedColor
    display()
    return
