@@ -36,7 +36,7 @@ var arr=[], copy=[]
 
 var work, sorted
 var sortCol="green", initCol="gray", wrongCol="red", checkCol="orange"
-var p,steps, delay=2000
+var p,steps, delay=1000
 working(false)
 gen()
  
@@ -136,15 +136,15 @@ function bubble(){
     display(arr)   
     
     
-     for(let z=0;z<12;z++){ 
+     for(let z=0;z<10;z++){ 
       copy[z]=JSON.parse(JSON.stringify(arr) )     
      
-     copy[z][p].x+=boxWidth*z/12
-     copy[z][p+1].x-=boxWidth*z/12
+     copy[z][p].x+=boxWidth*z/9
+     copy[z][p+1].x-=boxWidth*z/9
  
    
     setTimeout(function(){
-      display(copy[z]) },.05*z*delay) 
+      display(copy[z]) },.06*z*delay) 
       
      }
      
