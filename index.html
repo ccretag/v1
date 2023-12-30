@@ -92,10 +92,8 @@ function bubble(){
  if(p>size-2){working(false);
       if(sorted){ finish() } 
       return}
-  steps++
- color[p]=checkCol
- color[p+1]=checkCol 
- setTimeout(display, delay/3)
+ steps++
+ 
  if(arr[p+1]<arr[p]){
     sorted=false;
     color[p]=wrongCol
