@@ -72,7 +72,7 @@ function display(item){
 function oneSort(){
   if(work==true){ return }
   working(true)
-  if(choiceAlg.value=="Bubble"){ bubbleSort() }
+  if(choiceAlg.value=="Buble"){ bubbleSort() }
   if(choiceAlg.value=="Insert"){ insertSort() }
   if(choiceAlg.value=="Selection"){ selectSort() }
 }
@@ -139,8 +139,8 @@ function bubble(){
      for(z=0;z<7;z++){ 
       copy[z]=JSON.parse(JSON.stringify(arr) )     
      
-     copy[z][p].x+=boxWidth*1/3
-     copy[z][p+1].x-=boxWidth*1/3
+     copy[z][p].x+=boxWidth*z/6
+     copy[z][p+1].x-=boxWidth*z/6
  
      setTimeout(function(){
       display(copy[0]) },.1*z*delay) 
