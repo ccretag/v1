@@ -134,7 +134,7 @@ function bubble(){
    arr[p+1].col=wrongCol
       
    for(let z=0;z<7;z++){ 
-      copy[z]=JSON.parse(JSON.stringify(arr) )     
+      copy[z]=[...arr]   
       copy[z][p].x+=boxWidth*z/6
       copy[z][p+1].x-=boxWidth*z/6
       setTimeout(function(){
